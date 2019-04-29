@@ -15,3 +15,8 @@ chmod 755 ./*conda*.sh
 ./bootstrap-conda.sh
 # Create / Update conda environment via conda yaml
 CONDA_ENV_YAML=$CONDA_ENV_YAML_PATH ./install-conda-env.sh
+
+source /etc/profile.d/conda.sh
+git clone https://github.com/rapidsai/dask-cudf
+cd dask-cudf
+pip install .
