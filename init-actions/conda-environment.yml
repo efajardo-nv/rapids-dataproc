@@ -1,0 +1,14 @@
+name: rapids
+channels:
+  - anaconda
+  - nvidia
+  - rapidsai-nightly/label/cuda10.0
+  - numba
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.7
+  - cudatoolkit
+  - cudf
+  - cuml
