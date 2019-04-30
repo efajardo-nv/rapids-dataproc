@@ -12,3 +12,4 @@ dependencies:
   - cudatoolkit
   - cudf
   - cuml
+  - dask distributed
