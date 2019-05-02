@@ -20,3 +20,7 @@ source /etc/profile.d/conda.sh
 git clone https://github.com/rapidsai/dask-cudf
 cd dask-cudf
 pip install .
+
+pip install gcsfs
+pip install xgboost
+pip install dask-xgboost

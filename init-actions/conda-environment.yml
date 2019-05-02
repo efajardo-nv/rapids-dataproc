@@ -10,6 +10,8 @@ channels:
 dependencies:
   - python=3.7
   - cudatoolkit
-  - cudf
-  - cuml
-  - dask distributed
+  - cudf=0.7.0.dev0=py37_1113
+  - cuml=0.7.0.dev0
+  - dask
+  - distributed
+  - dask-cuda=0.7.0.dev0
