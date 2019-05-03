@@ -1,6 +1,6 @@
 # rapids-dataproc
 
-Setup:
+Pre-Req:
 [Install Google Cloud SDK](https://cloud.google.com/sdk/install)
 
 The SDK setup process will create new SSH keys: ~/.ssh/google_compute_engine
@@ -15,7 +15,7 @@ Overview:
     d. install Jupyter
     e. start dask-scheduler and workers
 
-#Artifacts#:
+# Artifacts #:
 
 Binaries and initialization scripts are copied into Google Cloud Storage (gcs) bucket: rapids-test-1.
 
@@ -27,6 +27,8 @@ Add or Update Artifacts in GCS:
 ```
 gsutil cp xgboost-0.83.dev0-py3-none-any.whl gs://rapidsai-test-1/binaries/xgboost-0.83.dev0-py3-none-any.whl
 ```
+
+# Cluster Setup #:
 
 Create a Cluster ([script avail](scripts/create-cluster.sh)):
 ```
@@ -67,7 +69,9 @@ sudo mkdir -p /mnt/disks/rapids
 sudo mount -o discard,defaults /dev/sdb /mnt/disks/rapids
 ```
 
-Delete the cluster:
+# Cluster Teardown #:
+
+Stop/delete the cluster:
 ```
 gcloud dataproc clusters delete randy
 ```
