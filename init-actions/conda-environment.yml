@@ -1,17 +1,16 @@
 name: rapids
 channels:
-  - anaconda
-  - nvidia
   - rapidsai-nightly/label/cuda10.0
-  - numba
+  - nvidia
   - conda-forge
+  - numba
   - pytorch
-  - defaults
 dependencies:
   - python=3.7
-  - cudatoolkit
-  - cudf=0.7.0.dev0=py37_1113
-  - cuml=0.7.0.dev0
+  - cudf=<0.8.0
+  - cuml=<0.8.0
+  - dask-cuda=<0.8.0
+  - cupy
   - dask
   - distributed
-  - dask-cuda=0.7.0.dev0
+  - gcsfs
