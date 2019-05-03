@@ -1,12 +1,13 @@
 name: rapids
 channels:
-  - rapidsai-nightly/label/cuda10.0
+  - rapidsai-nightly
   - nvidia
   - conda-forge
   - numba
   - pytorch
 dependencies:
   - python=3.7
+  - cudatoolkit=10.0
   - cudf=<0.8.0
   - cuml=<0.8.0
   - dask-cuda=<0.8.0
