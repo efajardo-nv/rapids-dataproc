@@ -1,6 +1,6 @@
 name: rapids
 channels:
-  - rapidsai-nightly
+  - rapidsai-nightly/label/cuda10.0
   - nvidia
   - conda-forge
   - numba

@@ -17,10 +17,16 @@ chmod 755 ./*conda*.sh
 CONDA_ENV_YAML=$CONDA_ENV_YAML_PATH ./install-conda-env.sh
 
 source /etc/profile.d/conda.sh
-git clone https://github.com/rapidsai/dask-cudf
-cd dask-cudf
-pip install .
 
-pip install gcsfs
-pip install xgboost
-pip install dask-xgboost
+# workaround for https://github.com/rapidsai/dask-cudf/issues/214
+# ToDo: install from conda package instead
+pip install git+https://github.com/rapidsai/dask-cudf.git@branch-0.7
+
+# install xgboost from wheel
+# ToDo: install from conda package instead
+XGBOOST_WHEEL=xgboost-0.83.dev0-py3-none-any.whl
+gsutil cp gs://rapidsai-test-1/binaries/${XGBOOST_WHEEL} ${XGBOOST_WHEEL}
+pip install ${XGBOOST_WHEEL}
+
+# ToDo: install from conda package instead
+pip install git+https://github.com/rapidsai/dask-xgboost.git@dask-cudf
