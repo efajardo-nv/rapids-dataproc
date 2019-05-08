@@ -1,7 +1,8 @@
 # rapids-dataproc
 
 Pre-Req:
-[Install Google Cloud SDK](https://cloud.google.com/sdk/install)
+1. [Install Google Cloud SDK](https://cloud.google.com/sdk/install)
+2. [Initialize the Google Cloud SDK](https://cloud.google.com/sdk/docs/initializing)
 
 The SDK setup process will create new SSH keys: ~/.ssh/google_compute_engine
 
@@ -9,11 +10,11 @@ Overview:
 1. Dataproc creates a cluster with a master and workers
 2. On startup, "initialization action" scripts are run on all nodes
 3. Our init actions:
-    a. install nvidia driver
-    b. install conda
-    c. install RAPIDS packages
-    d. install Jupyter
-    e. start dask-scheduler and workers
+    - [install nvidia driver](init-actions/install-gpu-driver.sh)
+    - [install miniconda](https://github.com/GoogleCloudPlatform/dataproc-initialization-actions/tree/master/conda)
+    - [install RAPIDS conda packages](init-actions/conda-env-setup.sh)
+    - install [Jupyter notebook](https://jupyter.org/)
+    - [start dask-scheduler and workers](init-actions/dask-network-setup.sh)
 
 # Artifacts:
 
@@ -51,7 +52,7 @@ ssh -i ~/.ssh/google_compute_engine -L 8888:localhost:8888 -L 8787:localhost:878
 
 [Add SSDs](https://cloud.google.com/compute/docs/disks/add-persistent-disk#use_multi_instances) with taxi data pre-loaded, once for each worker:
 ```
-gcloud compute instances attach-disk randy-w-0 --zone "us-east1-c" --disk pd-ssd-rapids-1 --mode ro
+gcloud compute instances attach-disk randy-w-0 --zone "us-east1-c" --disk pd-ssd-rapids-2 --mode ro
 ```
 
 Mount the disk, once for each worker:

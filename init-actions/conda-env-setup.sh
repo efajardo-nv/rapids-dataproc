@@ -20,15 +20,16 @@ CONDA_ENV_YAML=$CONDA_ENV_YAML_PATH ./install-conda-env.sh
 
 source /etc/profile.d/conda.sh
 
-# workaround for https://github.com/rapidsai/dask-cudf/issues/214
-# ToDo: install from conda package instead
-pip install git+https://github.com/rapidsai/dask-cudf.git@branch-0.7
-
 # install xgboost from wheel
 # ToDo: install from conda package instead
 XGBOOST_WHEEL=xgboost-0.83.dev0-py3-none-any.whl
 gsutil cp gs://${DATAPROC_BUCKET}/binaries/${XGBOOST_WHEEL} ${XGBOOST_WHEEL}
 pip install ${XGBOOST_WHEEL}
+
+# ToDo: install from conda package instead
+LIBNCCL_DEB=libnccl2_2.4.6-1+cuda10.0_amd64.deb
+gsutil cp gs://${DATAPROC_BUCKET}/binaries/${LIBNCCL_DEB} ${LIBNCCL_DEB}
+apt install -y ./${LIBNCCL_DEB}
 
 # ToDo: install from conda package instead
 pip install git+https://github.com/rapidsai/dask-xgboost.git@dask-cudf
