@@ -13,6 +13,7 @@ dependencies:
   - dask-cudf=<0.8.0
   - cuml=<0.8.0
   - dask-cuml=<0.8.0
+  - jakirkham/label/xgboost::xgboost
   - dask
   - distributed
   - gcsfs
