@@ -1,5 +1,6 @@
 name: rapids
 channels:
+  - rapidsai/label/xgboost
   - rapidsai-nightly/label/cuda10.0
   - nvidia
   - conda-forge
@@ -13,8 +14,8 @@ dependencies:
   - dask-cudf=<0.8.0
   - cuml=<0.8.0
   - dask-cuml=<0.8.0
-  - rapidsai/label/xgboost::xgboost
-  - rapidsai/label/xgboost::dask-xgboost
+  - rapidsai/label/xgboost::xgboost=0.83.*
+  - rapidsai/label/xgboost::dask-xgboost=0.2.*
   - cython
   - dask
   - distributed
