@@ -13,8 +13,8 @@ dependencies:
   - dask-cudf=<0.8.0
   - cuml=<0.8.0
   - dask-cuml=<0.8.0
-  - jakirkham/label/rapidsai-xgboost::xgboost
-  - jakirkham/label/rapidsai-xgboost::dask-xgboost
+  - rapidsai/label/xgboost::xgboost
+  - rapidsai/label/xgboost::dask-xgboost
   - cython
   - dask
   - distributed
