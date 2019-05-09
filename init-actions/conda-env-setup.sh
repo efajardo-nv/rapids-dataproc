@@ -19,3 +19,8 @@ chmod 755 ./*conda*.sh
 CONDA_ENV_YAML=$CONDA_ENV_YAML_PATH ./install-conda-env.sh
 
 source /etc/profile.d/conda.sh
+
+# Copy demo notebook to Dataproc storage bucket if not already there
+git clone https://github.com/efajardo-nv/rapids-dataproc.git
+DEMO_NB=NYCTaxi-E2E.ipynb
+gsutil cp -n ./rapids-dataproc/notebooks/$DEMO_NB gs://${DATAPROC_BUCKET}/notebooks/
