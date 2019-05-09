@@ -37,7 +37,7 @@ Stop/delete the cluster:
 gcloud dataproc clusters delete test
 ```
 
-# Useful Info
+# Useful Commands & Info
 
 SSH into the master ([script avail](scripts/ssh.sh)):
 ```
@@ -51,8 +51,8 @@ gcloud compute --project "nv-ai-infra" ssh --zone "us-east1-c" test-w-0
 
 Setup SSH tunnel for local access to Jupyter:
 ```
-# get the IP of the master from GCloud Console
-ssh -i ~/.ssh/google_compute_engine -L 8888:localhost:8888 -L 8787:localhost:8787 dev@35.231.99.40
+# get the IP of the master from GCloud Console, or use "curl ifconfig.me"
+ssh -i ~/.ssh/google_compute_engine -L 8888:localhost:8888 -L 8787:localhost:8787 dev@${EXTERNAL_IP}
 ```
 
 Taxi data _is_ available in a public GCP storage bucket: gcs://anaconda-public-data/nyc-taxi/csv, but it's not fast.
@@ -87,13 +87,13 @@ sudo mount -o discard,defaults /dev/sdb /data
 
 # Artifacts:
 
-Binaries and initialization scripts are copied into Google Cloud Storage (gcs) bucket: rapids-test-1.
+Initialization scripts and notebooks live in Google Cloud Storage (gcs) bucket: rapids-test-1.
 
 Examples:
 gs://rapidsai-test-1/init-actions/install-gpu-driver.sh
 gs://rapidsai-test-1/binaries/NVIDIA-Linux-x86_64-410.104.run
 
-Add or Update Artifacts in GCS:
+To add or Update Artifacts in GCS:
 ```
-gsutil cp xgboost-0.83.dev0-py3-none-any.whl gs://rapidsai-test-1/binaries/xgboost-0.83.dev0-py3-none-any.whl
+gsutil cp xgboost-0.83.dev0-py3-none-any.whl gs://rapidsai-test-1/binaries/
 ```
