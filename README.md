@@ -35,10 +35,7 @@ gcloud beta dataproc clusters create test \
 
 Installing the recent GPU driver and conda environment takes around 15 minutes. Afterwards, Jupyter will be available from the master node.
 
-Two example notebooks are provided:
-
-1. A simple analysis of taxi tips
-2. A more complex ETL + ML training example of predicting taxi fare costs
+An [example notebook](notebooks/NYCTaxi-E2E.ipynb) is provided demonstrating end to end data pre-processing (ETL) and model training with RAPIDS APIs.
 
 # Cluster Teardown:
 
