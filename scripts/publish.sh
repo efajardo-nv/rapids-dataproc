@@ -1,3 +1,5 @@
-BUCKET=$1
+DATAPROC_BUCKET=$1
 
-gsutil cp -r init-actions gs://$BUCKET/
+# run from https://github.com/randerzander/dataproc-initialization-actions/tree/master/rapids
+gsutil cp *.sh gs://$DATAPROC_BUCKET/rapids/
+gsutil cp *.yml gs://$DATAPROC_BUCKET/rapids/
