@@ -12,7 +12,8 @@ Pre-Requisites:
 
 The SDK setup process will create new SSH keys in ~/.ssh/google_compute_engine
 
-Overview of Dataproc:
+Dataproc cluster creation process:
+
 1. Dataproc creates a cluster with a master and workers
 2. On startup, "initialization action" scripts are run on all nodes
 3. RAPIDS init actions do the following:
